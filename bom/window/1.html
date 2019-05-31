@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .box{
+      width: 1200px;
+      height: 600px;
+      background-color: aquamarine;
+    }
+  </style>
+</head>
+<body>
+  <!-- <div class="box"></div> -->
+
+  <script>
+    var innerWidth = window.innerWidth,
+        innerHeight = window.innerHeight;
+    
+    if(typeof innerWidth !== 'number') {
+      if (document.compatMode == "CSS1Compat") { // 当前文档渲染模式是 “标准模式”
+        innerWidth = document.documentElement.clientWidth
+        innerHeight = document.documentElement.clientHeight
+      } else{ // 当前文档渲染模式是 “混杂模式”
+        innerWidth = document.body.clientWidth
+        innerHeight = document.body.clientHeight
+      }
+    }
+    console.log('innerWidth: ' + innerWidth)
+    console.log('innerHeight: ' + innerHeight)
+  </script>
+</body>
+</html>

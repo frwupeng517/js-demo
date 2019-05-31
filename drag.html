@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {margin: 0; padding: 0; }
+    body, textarea, select, input, button {font-size: 12px; color: #fff; font-family: Arial, Helvetica, sans-serif; -webkit-text-size-adjust: none;}
+
+    .fl-l{float: left;}
+    .fl-r{float: right;}
+
+    #dialog{
+      position: absolute;
+      top: 200px;
+      left: 400px;
+      width: 400px;
+      height: 200px;
+      background-color: #eaf6db;
+      border: 1px solid lightslategray;
+    }
+    .dialog-title{
+      height: 40px;
+      line-height: 40px;
+      background-color: #3a3333;
+      cursor: move;
+    }
+    .login, .close{
+      display: inline-block;
+      margin: 0 15px;
+    }
+
+  </style>
+</head>
+<body>
+  <div id="dialog">
+    <div id="dialog-title" class="dialog-title">
+      <span class="fl-l login">登录</span>
+      <span class="fl-r close">X</span>
+    </div>
+  </div>
+
+  <script>
+    // 获取DOM元素
+    var dialogTitle = document.getElementById('dialog-title')
+    var dialog = document.getElementById('dialog')
+
+    // 初始化鼠标默认位置
+    var disX = 0, disY = 0
+
+    // 添加鼠标按下事件
+    dialogTitle.onmousedown = function(e) {
+      var e = e || event
+
+      // 计算鼠标距离弹出框内的位置
+      disX = e.clientX - dialog.offsetLeft          // 鼠标相对于浏览器窗口左上角的横向距离 - 弹出框距离页面左上角的横向偏移距离
+      disY = e.clientY - dialog.offsetTop           // 鼠标相对于浏览器窗口左上角的纵向距离 - 弹出框距离页面左上角的纵向偏移距离
+
+      // 点击弹出框后拖动鼠标，移动弹出框
+      document.onmousemove = function(e) {
+        var e = e || event
+        
+        // 弹出框dialog距离窗口左上角的水平和纵向距离
+        var currentDialogDisX = e.clientX - disX
+        var currentDialogDisY = e.clientY - disY
+
+        if(currentDialogDisX < 0) { // 弹出框紧贴窗口左边的情况
+          currentDialogDisX = 0
+        } else if(currentDialogDisX > document.documentElement.clientWidth - dialog.offsetWidth) { // 弹出框紧贴窗口右边的情况
+          currentDialogDisX = document.documentElement.clientWidth - dialog.offsetWidth
+        }
+
+        if(currentDialogDisY < 0) { // 弹出框紧贴窗口上边的情况
+          currentDialogDisY = 0
+        } else if(currentDialogDisY > document.documentElement.clientHeight - dialog.offsetHeight) { // 弹出框紧贴窗口下边的情况
+          currentDialogDisY = document.documentElement.clientHeight - dialog.offsetHeight
+        }
+        
+        // 当鼠标移动时改变弹出框的位置
+        dialog.style.left = currentDialogDisX + 'px'
+        dialog.style.top = currentDialogDisY + 'px'
+
+      }
+      
+      // 当点击鼠标拖动弹出框，抬起鼠标时
+      document.onmouseup = function() {
+        // 清除弹出框的移动事件及本身
+        document.onmousemove = null
+        document.onmouseup = null
+      }
+
+      // 阻止默认事件，如果不加这个阻止默认事件，在 firefox 下会有一个获取焦点的光标一直在闪动，在3.0及以下会出现拖动出现重影的情况
+      return false
+    }
+  </script>
+</body>
+</html>

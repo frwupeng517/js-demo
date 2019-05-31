@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .box{width: 200px; height: 100px; padding: 15px; background-color:blanchedalmond; border: 2px solid red; overflow: auto;}
+  </style>
+</head>
+<body>
+  <div class="box" id="box">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, voluptate. Deleniti commodi, sapiente earum inventore fuga nulla facere quibusdam unde reiciendis perspiciatis voluptate, sint fugiat aspernatur quidem voluptatem voluptatibus rem?</div>
+
+
+  <script>
+    var box = document.getElementById('box')
+    // console.log('clientWidth: ' + box.clientWidth)    // clientWidth: 213
+    // console.log('clientHeight: ' + box.clientHeight)  // clientHeight: 130
+
+    // console.log('clientLeft: ' + box.clientLeft)    // clientLeft: 2
+    // console.log('clientTop: ' + box.clientTop)      // clientTop: 2
+
+    console.log('offsetWidth: ' + box.offsetWidth)     // offsetWidth: 234
+    console.log('offsetHeight: ' + box.offsetHeight)   // offsetHeight: 134
+  </script>
+</body>
+</html>

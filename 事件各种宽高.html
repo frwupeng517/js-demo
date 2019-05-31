@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>offsetX&offsetY</title>
+  <style>
+    #elem{width: 100px; height: 100px; background: #f0f0f0; border: 1px solid #ddd; padding: 10px;}
+
+    #output{width: 300px; height: 300px;}
+  </style>
+</head>
+<body>
+  <div id="elem">Hello</div>
+  <div id="output"></div>
+
+  <script>
+    var elem = document.getElementById('elem')
+    var output = document.getElementById('output')
+    elem.addEventListener('click', function(e){
+      console.log(e)
+      /*
+        event.clientX  属性返回鼠标位置相对于浏览器窗口左上角的水平坐标（单位像素）只读
+        event.clientY  属性返回鼠标位置相对于浏览器窗口左上角的垂直坐标（单位像素）只读
+      */
+      var clientX = e.clientX, clientY = e.clientY
+      var p0 = document.createElement('p')
+      p0.innerHTML = `clientX: ${clientX} \t\n clientY: ${clientY}`
+      output.appendChild(p0)
+
+      /* 
+        event.offsetX  属性返回鼠标位置与目标节点左侧的 padding 边缘的水平距离（单位像素） 只读 （不包含边框）
+        event.offsetY  属性返回鼠标位置与目标节点上方的 padding 边缘的垂直距离（单位像素） 只读 （不包含边框）
+      */
+      var offsetX = e.offsetX, offsetY = e.offsetY
+      var p1 = document.createElement('p')
+      p1.innerHTML = `offsetX: ${offsetX} \t\n offsetY: ${offsetY}`
+      output.appendChild(p1)
+
+      /*
+        event.screenX  属性返回鼠标位置相对于屏幕左上角的水平坐标（单位像素） 只读
+        event.screenY  属性返回鼠标位置相对于屏幕左上角的垂直坐标（单位像素） 只读
+      */
+      var screenX = e.screenX, screenY = e.screenY
+      var p2 = document.createElement('p')
+      p2.innerHTML = `screenX: ${screenX} \t\n screenY: ${screenY}`
+      output.appendChild(p2)
+
+      /*
+        event.pageX  属性返回鼠标位置与文档左侧边缘的距离（单位像素） 只读  不包含文档不可见的部分
+        event.pageY  属性返回鼠标位置与文档上侧边缘的距离（单位像素） 只读  不包含文档不可见的部分
+      */
+      var pageX = e.pageX, pageY = e.pageY
+      var p3 = document.createElement('p')
+      p3.innerHTML = `pageX: ${pageX}  \t\n pageY: ${pageY}`
+      output.appendChild(p3)
+    }, false)
+  </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{box-sizing: border-box;}
+    .box1{position: fixed; width: 350px; height: 350px; margin: 15px; padding: 75px; background-color:bisque; border: 2px solid #000;}
+    .box2{width: 200px; height: 200px; padding: 50px; background-color:aquamarine; }
+    .box3{width: 100px; height: 100px; background-color:aliceblue;}
+  </style>
+</head>
+<body>
+  <div class="box1">
+    <div class="box2">
+      <div class="box3" id = "box3"></div>
+    </div>
+  </div>
+
+  <script>
+    var box = document.getElementById('box3')
+    console.log('offsetLeft: ' + box.offsetLeft)     // offsetLeft: 125
+    console.log('offsetTop: ' + box.offsetTop)       // offsetTop: 125
+    /*
+    // 父元素 box2 定位
+    console.log(box.offsetParent)   // <div class="box2"></div>
+
+    // 父元素 box2 的父元素 box1 定位（box2 没有定位）
+    console.log(box.offsetParent)     // <div class="box1"></div>
+
+    // 所有父元素都没有定位
+    console.log(box.offsetParent)     // <body></body>
+
+    // 该元素或祖先元素 设为 display: none
+    console.log(box.offsetParent)        // webkit, IE11: null, IE10-IE9: <body></body>
+
+    // 该元素的定位方式为fixed（不管祖先元素是否定位）
+    console.log(box.offsetParent)        // 所有IE 均返回 null
+
+    */
+  </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Form Data</title>
+</head>
+<body>
+  <form action=" id="myForm" name="myForm">
+    <div>
+      <label for="username">用户名:</label>
+      <input type="text" id="username" name="username">
+    </div>
+    <div>
+      <label for="account">账号：</label>
+      <input type="text" id="account" name="account">
+    </div>
+    <div>
+      <label for="userfile">上传文件：</label>
+      <input type="file" id="userfile" name="userfile">
+    </div>
+    <input type="button" value="Submit" onclick="submitForm()">
+  </form>
+
+  <script>
+    function submitForm() {
+      let myForm = document.getElementById('myForm'),
+        formData = new FormData(myForm)
+      
+      console.log(formData.get('username'))
+
+      formData.set('username', document.getElementById('username').value)
+      console.log(formData.get('username')) 
+    }
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>getComputedStyle</title>
+  <style>
+    #elem-container{
+      width: 100px;
+      height: 100px;
+      padding: 10px;
+      border: 2px solid #000;
+      background-color: rebeccapurple;
+      overflow: auto;
+    }
+  </style>
+</head>
+<body>
+  <div id="elem-container">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla commodi cupiditate ratione voluptate dignissimos porro nam provident consequuntur tempore, tempora ex vitae nobis. Exercitationem quo ratione suscipit incidunt eveniet qui!</div>
+  <div id="output" style="width: 100px; height: 100px; background-color: aqua;"></div>
+
+  <script>
+    var elem = document.getElementById('elem-container'),
+        output = document.getElementById('output')
+    
+    var style = window.getComputedStyle(elem, null)
+    console.log(style)
+
+    console.log(style.width)                // 100px
+    console.log(style.height)               // 100px
+    console.log(style.backgroundColor)      // rgb(102, 51, 153)
+
+    console.log('--------------------------------------------')
+
+    console.log(output.width)               // undefined
+    console.log(output.height)              // undefined
+    console.log(output.backgroundColor)     // undefined
+
+    console.log('--------------------------------------------')
+    
+    console.log(elem.style.width)           // ''
+    console.log(output.style.width)         // 100px
+
+    console.log('--------------------------------------------')
+    // 对象内容的可视区，不包括边框和滚动条，会随对象显示的大小变化而改变
+    console.log(elem.clientWidth)           // 103
+    console.log(elem.clientHeight)          // 103
+    
+
+    console.log('--------------------------------------------')
+    // 对象的实际内容宽度，不包括边框（但是包括滚动条），会随对象中内容超过可视区后而变大
+    console.log(elem.scrollWidth)           // 134
+    console.log(elem.scrollHeight)          // 566
+
+    console.log('--------------------------------------------')
+    // 对象整体的实际宽度，包括滚动条和边框，会随对象显示大小的变化而改变
+    console.log(elem.offsetWidth)           // 124
+    console.log(elem.offsetHeight)          // 124
+
+    console.log('--------------------------------------------')
+    // 对象边框的宽度
+    console.log(elem.clientLeft)            // 2
+    console.log(elem.clientTop)             // 2
+
+    console.log('--------------------------------------------')
+    // 对象的显示（可见）的内容与该对象实际的内容的距离
+    console.log(elem.scrollLeft)            // 0
+    console.log(elem.scrollTop)             // 0
+
+    console.log('--------------------------------------------')
+    // 对象边框的外边缘距离已定位的父容器的内边距离（不包括元素的边框和父容器的边框）
+    console.log(elem.offsetLeft)            // 8
+    console.log(elem.offsetTop)             // 8
+
+  </script>
+</body>
+</html>

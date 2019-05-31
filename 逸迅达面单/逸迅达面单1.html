@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>逸迅达面单1</title>
+  <style>
+    *{margin: 0; padding: 0;}
+    div{box-sizing: border-box;}
+    body{background: #666;}
+    .content{ width: 390px; height: 480px; margin: 30px auto; background: #fff;}
+    .logo{ width: 100%; height: 20%; padding: 0 10%; text-align: center;}
+    .logo img{ max-width: 100%; max-height: 100%;}
+    .carton{width: 100%; height: 20%; padding: 0 10%; font-size: 0; }
+    .carton-number{display: inline-block; width: 50%; font-family: '楷体', 'KaiTi';}
+    .carton-number__label{margin-bottom: 5%; font-size: 26px; text-align: center;}
+    .carton-number__value{margin: 8% 0 12% 0; font-size: 36px; text-align: center;}
+    .carton-letter{display: inline-block; width: 50%; font-size: 66px; text-align: center;}
+    .carton-dest, .carton-pcs{display: inline-block; width: 50%; height: 100%; vertical-align: top; border-top: 1px solid #000; border-bottom: 1px solid #000;}
+    .carton-dest{border-right: 1px solid #000;}
+    .carton-dest__label, .carton-pcs__label{padding-left: 2%; font-size: 16px; text-align: left;}
+    .carton-dest__value, .carton-pcs__value{margin: 5% 0 5% 0; font-size: 36px; vertical-align: bottom;}
+    .carton-dest__value{padding-right: 15%; text-align: right;}
+    .carton-pcs__value{font-weight: 600; text-align: center; font-size: 45px;}
+    .barcode{width: 100%; height: 20%; padding: 0 10%;}
+    .number{width: 100%;  padding: 0 10%; text-align: center; font-size: 45px; font-weight: 600;}
+    .title{width: 100%;  padding: 3% 10%; text-align: center; font-size: 36px;}
+    .info-number{padding: 0; font-size: 46px;}
+    .info-carton{height: 15%; margin-top: 20px; padding: 0 5%;}
+    .info-carton .carton-dest{width: 45%;}
+    .info-carton .carton-pcs{width: 55%;}
+    .info-carton .carton-dest__value, .info-carton .carton-pcs__value{margin: 0; font-size: 32px;}
+    .option{width: 100%; height: 10%; padding: 0 5%; margin-top: 15px;}
+    .option-title{border-top: 1px solid #000;}
+    .bottom-carton .carton-dest, .bottom-carton .carton-pcs{border-bottom: none;}
+  </style>
+</head>
+<body>
+  <div class="content yxd-content">
+    <div class="logo">
+      <img src="./YXD_LOGO2.png" alt="logo">
+    </div>
+    <div class="carton">
+      <div class="carton-number">
+        <div class="carton-number__label">TDL&nbsp;箱&nbsp;号</div>
+        <div class="carton-number__value">001-002</div>
+      </div>
+      <div class="carton-letter">G</div>
+    </div>
+    <div class="carton">
+      <div class="carton-dest">
+        <div class="carton-dest__label">Destination</div>
+        <div class="carton-dest__value">KIX</div>
+      </div>
+      <div class="carton-pcs">
+        <div class="carton-pcs__label">HAWB&nbsp;PCS</div>
+        <div class="carton-pcs__value">2</div>
+      </div>
+    </div>
+    <div class="barcode"></div>
+    <div class="number">3332352822</div>
+  </div>
+
+  <div class="content">
+    <div class="title">CHINA&nbsp;AIRLINE</div>
+    <div class="barcode"></div>
+    <div class="number info-number">297-7635 0050</div>
+    <div class="carton info-carton">
+      <div class="carton-dest">
+        <div class="carton-dest__label">Destination</div>
+        <div class="carton-dest__value">KIX</div>
+      </div>
+      <div class="carton-pcs">
+        <div class="carton-pcs__label">Total Number of pieces</div>
+        <div class="carton-pcs__value">2</div>
+      </div>
+    </div>
+    <div class="option">
+      <div class="option-title">Option of Information</div>
+      <div class="option-text"></div>
+    </div>
+    <div class="carton info-carton bottom-carton">
+      <div class="carton-dest">
+        <div class="carton-dest__label">House Destination</div>
+      </div>
+      <div class="carton-pcs">
+        <div class="carton-pcs__label">HA WB PCS</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

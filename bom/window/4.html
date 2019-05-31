@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .box{width: 100px; height: 150px; margin: 15px; padding: 15px; background-color: lightgreen; overflow: scroll;}
+  </style>
+</head>
+<body>
+  <div class="box" id="box">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat odit molestias hic, fuga cumque repudiandae labore dignissimos itaque sunt, sint incidunt, minima laborum earum non maiores laudantium? Reiciendis, unde fugiat.</div>
+
+  <script>
+    var box = document.getElementById('box')
+    console.log('clientWidth: ' + box.clientWidth)
+    console.log('clientHeight: ' + box.clientHeight)
+    console.log('-------------------------------------------')
+    console.log('offsetWidth: ' + box.offsetWidth)
+    console.log('offsetHeight: ' + box.offsetHeight)
+    console.log('-------------------------------------------')
+    console.log('scrollWidth: ' + box.scrollWidth)
+    console.log('scrollHeight: ' + box.scrollHeight)
+  </script>
+</body>
+</html>

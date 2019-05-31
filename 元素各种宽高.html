@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>元素各种宽高</title>
+  <style>
+    #elem{width: 100px; height: 100px; background: #f0f0f0; border: 1px solid #ddd; padding: 10px; overflow: scroll;}
+
+  </style>
+</head>
+<body>
+  <!-- <div style="position: relative;"> -->
+    <div id="elem" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum est officiis quam ullam, aliquam sed cumque nisi asperiores veritatis, eos modi aliquid. Iusto veniam in doloribus amet quo a vitae.</div>
+  <!-- </div> -->
+  <div id="output"></div>
+
+  <script>
+    var elem = document.getElementById('elem')
+    var output = document.getElementById('output')
+    
+    /*
+      element.clientWidth 属性返回一个整数值，表示元素节点的CSS宽度（单位像素），只对块级元素有效，对于行内元素返回0
+          如果块级元素没有设置CSS宽度，则返回实际宽度
+          除了元素本身的宽度，它还包括padding部分，但是不包含border，margin。如果有垂直滚动条，还要减去垂直滚动条的宽度
+          注意：这个数始终是整数，如果是小数会被四舍五入
+      element.clientHeight 属性表示元素节点的CSS高度，同样只针对块级元素有效
+          除了元素本身的高度，它还包括padding部分，也不包括border和margin。如果有水平滚动条，还要减去水平滚动条的高度
+    */
+    var p1 = document.createElement('p')
+    p1.textContent = `element.clientWidth : ${elem.clientWidth}, element.clientHeight : ${elem.clientHeight}`
+    output.appendChild(p1)
+
+    /*
+      element.clientLeft 属性等于元素节点左边框（left border）的宽度，不包括左侧的padding和margin
+          如果没有设置左边框，或者是行内元素，该属性为0。该属性总是返回整数值，如果是小数，会四舍五入
+      element.clientTop 属性等于元素节点顶部边框的宽度
+    */
+    var p2 = document.createElement('p')
+    p2.textContent = `element.clientLeft : ${elem.clientLeft}, element.clientTop : ${elem.clientTop}`
+    output.appendChild(p2)
+
+    /*
+      element.offsetParent 属性返回最靠近当前元素的，并且CSS的position属性不等于static的上层元素
+          该属性主要用于确定子元素位置偏移的计算基准，element.offsetTop 和 element.offsetLeft 就是 offsetParent 元素计算的
+          如果该元素是不可见的（display为none时），或者位置是固定的（position属性为fixed时），则offsetParent属性返回null
+    */
+    console.log('element.offsetParent: ', elem.offsetParent)
+    var p3 = document.createElement('p')
+    p3.textContent = `element.offsetParent : ${elem.offsetParent}`
+    output.appendChild(p3)
+
+    /*
+      element.offsetHeight 属性返回一个整数，表示元素的CSS垂直高度，包括元素本身的高度、padding和border，以及水平滚动条的高度（如果存在）
+      element.offsetWidth  属性返回一个整数，表示元素的CSS水平跨度，其余同offsetHeight
+          这两个属性都是只读属性，只比element.clientWidth和element.clientHeight多了边框的高度或宽度以及滚动条的宽高
+          如果元素的CSS设为不可见（比如display:none），则返回0
+    */
+    var p4 = document.createElement('p')
+    p4.textContent = `element.offsetWidth : ${elem.offsetWidth} , element.offsetHeight : ${elem.offsetHeight}`
+    output.appendChild(p4)
+
+    /*
+      element.offsetLeft  属性返回当前元素左上角相对于 element.offsetParent 节点的水平位移
+      element.offsetTop   属性返回当前元素左上角相对于 element.offsetParent 节点的垂直位移
+          通常，这两个值是相对于父节点的位移
+    */
+    var p5 = document.createElement('p')
+    p5.textContent = `element.offsetLeft : ${elem.offsetLeft} , element.offsetTop : ${elem.offsetTop}`
+    output.appendChild(p5)
+
+    /*
+      element.scrollWidth   属性返回一个整数值（四舍五入），表示当前元素的总宽度，包括溢出容器、当前不可见的部分
+          它包括 padding、但是不包括 border、margin 以及垂直滚动条宽度（如果有垂直滚动条的话），还包括伪元素（::before 或 ::after）的宽度
+      element.scrollHeight  属性表示当前元素的总高度，其余类似 element.scrollWidth
+    */
+    var p6 = document.createElement('p')
+    p6.textContent = `element.scrollWidth : ${elem.scrollWidth} , element.scrollHeight : ${elem.scrollHeight}`
+    output.appendChild(p6)
+
+    /*
+      element.scrollLeft   属性表示当前元素的水平滚动条向右侧滚动的像素
+      element.scrollTop    属性表示当前元素的垂直滚动条向下滚动的像素
+          对于那些没有滚动条的网页元素，这两个属性总是等于0
+    */
+    var p7 = document.createElement('p')
+    p7.textContent = `element.scrollLeft : ${elem.scrollLeft} , element.scrollTop : ${elem.scrollTop}`
+    output.appendChild(p7)
+  </script>
+</body>
+</html>
